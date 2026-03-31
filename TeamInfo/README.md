@@ -7,7 +7,7 @@
 
 ### Team Members
 1. Paru Maharjan (parumaharjan)*
-2. *Member 2 Name (GitHub Username)*
+2. Subista Kunwar (SubistaKunwar)*
 3. *Member 3 Name (GitHub Username)*
 
 ### Task Division
