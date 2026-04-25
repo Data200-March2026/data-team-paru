@@ -1,0 +1,17 @@
+Feature,Coefficient
+Attendance,2.2870766998512444
+Hours_Studied,1.7494502829736123
+Access_to_Resources,0.7309171918475268
+Parental_Involvement,0.7064491720872761
+Previous_Scores,0.7058708085395056
+Tutoring_Sessions,0.5939394697575394
+Parental_Education_Level,0.3943785241894518
+Motivation_Level,0.37575018853541037
+Peer_Influence,0.3737066903892917
+Family_Income,0.37197440969070766
+Teacher_Quality,0.31471941248190416
+Distance_from_Home,0.31042807326638666
+Learning_Disabilities,-0.2716532034319674
+Extracurricular_Activities,0.2700242342487432
+Internet_Access,0.24994173629948463
+Physical_Activity,0.17841153729049375
