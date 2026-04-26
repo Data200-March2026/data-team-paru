@@ -14,7 +14,7 @@ Students will apply statistical and predictive modeling techniques to analyze a 
 
 ---
 
-### Deliverables and Deadlines  
+### Deliverables and Deadlines
 
 #### **Week 1: Group Formation and Topic Finalization**  
 - Form project groups.
