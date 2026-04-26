@@ -15,7 +15,7 @@ print(f"\nDuplicates   : {df.duplicated().sum()}")
 print(f"\nExam_Score > 100: {(df['Exam_Score'] > 100).sum()} row(s)")
 print(f"\nFirst 5 rows:\n{df.head()}")
 
-# ── 2. Remove impossible score ─────────────────────────────
+# ── 2. Remove impossible scoree ─────────────────────────────
 df = df[df["Exam_Score"] <= 100].copy()
 print(f"\n Removed rows where Exam_Score > 100")
 print(f"   New shape: {df.shape}")
