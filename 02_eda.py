@@ -6,8 +6,8 @@ from scipy import stats
 import os
 
 # ── Setup ──────────────────────────────────────────────────
-df = pd.read_csv("data_cleaned.csv")
-os.makedirs("plots", exist_ok=True)
+df = pd.read_csv("data/data_cleaned.csv")
+os.makedirs("outputs", exist_ok=True)
 sns.set_theme(style="whitegrid", palette="muted")
 plt.rcParams.update({"font.size": 11, "figure.dpi": 130})
 
@@ -27,9 +27,9 @@ stats.probplot(df["Exam_Score"], plot=axes[1])
 axes[1].set_title("Q-Q Plot: Normality Check", fontweight="bold")
 
 plt.tight_layout()
-plt.savefig("plots/01_target_distribution.png", bbox_inches="tight")
+plt.savefig("outputs/01_target_distribution.png", bbox_inches="tight")
 plt.close()
-print(" Plot 1 saved: Target Distribution")
+print("Plot 1 saved: Target Distribution")
 
 # ── Plot 2: Correlation Heatmap ────────────────────────────
 num_cols = ["Hours_Studied", "Attendance", "Sleep_Hours",
@@ -43,9 +43,9 @@ sns.heatmap(corr, annot=True, fmt=".2f", cmap="coolwarm",
             mask=mask, linewidths=0.5, ax=ax, vmin=-1, vmax=1)
 ax.set_title("Correlation Heatmap — Numeric Features", fontweight="bold")
 plt.tight_layout()
-plt.savefig("plots/02_correlation_heatmap.png", bbox_inches="tight")
+plt.savefig("outputs/02_correlation_heatmap.png", bbox_inches="tight")
 plt.close()
-print(" Plot 2 saved: Correlation Heatmap")
+print("Plot 2 saved: Correlation Heatmap")
 
 print("\nTop correlations with Exam_Score:")
 print(corr["Exam_Score"].sort_values(ascending=False).to_string())
@@ -67,9 +67,9 @@ for ax, col, color in zip(axes,
     ax.legend()
 
 plt.tight_layout()
-plt.savefig("plots/03_scatter_top_features.png", bbox_inches="tight")
+plt.savefig("outputs/03_scatter_top_features.png", bbox_inches="tight")
 plt.close()
-print(" Plot 3 saved: Scatter Top Features")
+print("Plot 3 saved: Scatter Top Features")
 
 # ── Plot 4: Categorical Boxplots ───────────────────────────
 cat_features = ["Motivation_Level", "Family_Income",
@@ -93,9 +93,9 @@ for ax, col in zip(axes, cat_features):
 
 plt.suptitle("Exam Score by Categorical Features", fontweight="bold", fontsize=13)
 plt.tight_layout()
-plt.savefig("plots/04_categorical_boxplots.png", bbox_inches="tight")
+plt.savefig("outputs/04_categorical_boxplots.png", bbox_inches="tight")
 plt.close()
-print(" Plot 4 saved: Categorical Boxplots")
+print("Plot 4 saved: Categorical Boxplots")
 
 # ── Plot 5: Group Mean Bar Charts ──────────────────────────
 fig, axes = plt.subplots(1, 3, figsize=(14, 4))
@@ -111,9 +111,9 @@ for ax, col in zip(axes, ["School_Type", "Gender", "Learning_Disabilities"]):
                 v + 0.1, f"{v:.2f}", ha="center", va="bottom", fontsize=9)
 
 plt.tight_layout()
-plt.savefig("plots/05_group_means.png", bbox_inches="tight")
+plt.savefig("outputs/05_group_means.png", bbox_inches="tight")
 plt.close()
-print(" Plot 5 saved: Group Mean Scores")
+print("Plot 5 saved: Group Mean Scores")
 
 # ── Print key EDA findings ─────────────────────────────────
 print("\n" + "=" * 50)

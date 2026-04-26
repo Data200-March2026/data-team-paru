@@ -6,14 +6,14 @@ from scipy import stats
 import pickle
 
 # ── Load ───────────────────────────────────────────────────
-with open("model.pkl", "rb") as f:
+with open("models/model.pkl", "rb") as f:
     saved = pickle.load(f)
 
-y_test     = np.load("y_test.npy")
-y_pred     = np.load("y_pred.npy")
-coef_df    = pd.read_csv("coefficients.csv")
-df         = pd.read_csv("data_cleaned.csv")
-residuals  = y_test - y_pred
+y_test    = np.load("models/y_test.npy")
+y_pred    = np.load("models/y_pred.npy")
+coef_df   = pd.read_csv("models/coefficients.csv")
+df        = pd.read_csv("data/data_cleaned.csv")
+residuals = y_test - y_pred
 
 sns.set_theme(style="whitegrid")
 plt.rcParams.update({"font.size": 11, "figure.dpi": 130})
@@ -29,7 +29,7 @@ ax.set_ylabel("Predicted Exam Score", fontweight="bold")
 ax.set_title("Actual vs Predicted",   fontweight="bold")
 ax.legend()
 plt.tight_layout()
-plt.savefig("plots/06_actual_vs_predicted.png", bbox_inches="tight")
+plt.savefig("outputs/06_actual_vs_predicted.png", bbox_inches="tight")
 plt.close()
 print(" Plot 6 saved: Actual vs Predicted")
 
@@ -69,7 +69,7 @@ axes[1, 1].set_title("Scale-Location", fontweight="bold")
 
 plt.suptitle("Regression Diagnostics", fontweight="bold", fontsize=14)
 plt.tight_layout()
-plt.savefig("plots/07_residual_diagnostics.png", bbox_inches="tight")
+plt.savefig("outputs/07_residual_diagnostics.png", bbox_inches="tight")
 plt.close()
 print(" Plot 7 saved: Residual Diagnostics")
 
@@ -83,7 +83,7 @@ ax.axvline(0, color="black", linewidth=0.8)
 ax.set_xlabel("Standardized Coefficient", fontweight="bold")
 ax.set_title("Feature Importance (Coefficients)", fontweight="bold")
 plt.tight_layout()
-plt.savefig("plots/08_feature_importance.png", bbox_inches="tight")
+plt.savefig("outputs/08_feature_importance.png", bbox_inches="tight")
 plt.close()
 print(" Plot 8 saved: Feature Importance")
 
@@ -98,7 +98,7 @@ sw_stat, sw_p = stats.shapiro(sample)
 print(f"\n[1] Shapiro-Wilk (residual normality)")
 print(f"    W = {sw_stat:.4f},  p = {sw_p:.6f}")
 print(f"    Result: residuals {'ARE' if sw_p > 0.05 else 'are NOT'} normal at α=0.05")
-print(f"      Note in your report: large samples almost always reject normality.")
+print(f"     Note: large samples almost always reject normality.")
 print(f"       Inspect Q-Q plot visually — tails matter more than the test.")
 
 # Pearson correlations
@@ -117,7 +117,7 @@ for col, levels in [
     f, p = stats.f_oneway(*groups)
     print(f"    {col:<28} F = {f:.4f},  p = {p:.2e}  → {'Significant ' if p < 0.05 else 'Not significant'}")
 
-# ── Print interpretation ───────────────────────────────────
+# ── Interpretation ─────────────────────────────────────────
 print("\n" + "=" * 50)
 print("DIAGNOSTIC INTERPRETATION")
 print("=" * 50)
