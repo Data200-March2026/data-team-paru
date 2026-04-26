@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import pickle
 import os
 
-# ── 1. Load cleaned data ───────────────────────────────────
+# ── 1. Load cleaned dataa ───────────────────────────────────
 df = pd.read_csv("data_cleaned.csv")
 print(f"Loaded: {df.shape}")
 
