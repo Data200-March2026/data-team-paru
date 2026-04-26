@@ -87,7 +87,7 @@ plt.savefig("plots/08_feature_importance.png", bbox_inches="tight")
 plt.close()
 print(" Plot 8 saved: Feature Importance")
 
-# ── Hypothesis Tests ───────────────────────────────────────
+# ── Hypothesis Testss ───────────────────────────────────────
 print("\n" + "=" * 50)
 print("HYPOTHESIS TESTS")
 print("=" * 50)
