@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # ── 1. Load Data ──────────────────────────────────────────
-df = pd.read_csv("data/data.csv")
+df = pd.read_csv("data.csv")
 
 print("=" * 50)
 print("ORIGINAL DATASET")
@@ -45,5 +45,5 @@ print(f"Duplicates     : {df.duplicated().sum()}")
 print(f"\nBasic Statistics:\n{df.describe()}")
 
 # ── 6. Save cleaned data ───────────────────────────────────
-df.to_csv("data/data_cleaned.csv", index=False)
+df.to_csv("data_cleaned.csv", index=False)
 print("\n Cleaned data saved to: data_cleaned.csv")

@@ -8,7 +8,7 @@ import pickle
 import os
 
 # ── 1. Load cleaned data ───────────────────────────────────
-df = pd.read_csv("data/data_cleaned.csv")
+df = pd.read_csv("data_cleaned.csv")
 print(f"Loaded: {df.shape}")
 
 # ── 2. Encode categorical columns ─────────────────────────
@@ -39,7 +39,7 @@ binary_maps = {
 }
 for col, mapping in binary_maps.items():
     df_model[col] = df_model[col].map(mapping)
-    print(f"Binary encoded:  {col}")
+    print(f" Binary encoded:  {col}")
 
 # ── 3. Feature Selection ───────────────────────────────────
 X_all = df_model.drop("Exam_Score", axis=1)
@@ -79,8 +79,8 @@ r2   = r2_score(y_test, y_pred)
 rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 mae  = mean_absolute_error(y_test, y_pred)
 
-cv    = KFold(n_splits=5, shuffle=True, random_state=42)
-cv_r2 = cross_val_score(model, X_scaled, y, cv=cv, scoring="r2")
+cv      = KFold(n_splits=5, shuffle=True, random_state=42)
+cv_r2   = cross_val_score(model, X_scaled, y, cv=cv, scoring="r2")
 
 print("\n" + "=" * 50)
 print("MODEL PERFORMANCE")
@@ -103,30 +103,30 @@ print(coef_df.to_string(index=False))
 print(f"\nIntercept: {model.intercept_:.4f}")
 
 # ── 9. Save model artifacts ────────────────────────────────
-os.makedirs("models", exist_ok=True)
+os.makedirs("model", exist_ok=True)
 
 model_data = {
-    "model":         model,
-    "scaler":        scaler,
-    "features":      list(X.columns),
+    "model":        model,
+    "scaler":       scaler,
+    "features":     list(X.columns),
     "metrics": {
-        "r2":        r2,
-        "rmse":      rmse,
-        "mae":       mae,
-        "cv_r2":     cv_r2.mean(),
-        "cv_std":    cv_r2.std()
+        "r2":       r2,
+        "rmse":     rmse,
+        "mae":      mae,
+        "cv_r2":    cv_r2.mean(),
+        "cv_std":   cv_r2.std()
     },
-    "ordinal_maps":  ordinal_maps,
-    "binary_maps":   binary_maps,
+    "ordinal_maps": ordinal_maps,
+    "binary_maps":  binary_maps,
     "drop_features": drop_features
 }
 
-with open("models/model.pkl", "wb") as f:
+with open("model.pkl", "wb") as f:
     pickle.dump(model_data, f)
 
-coef_df.to_csv("models/coefficients.csv", index=False)
-np.save("models/y_test.npy", y_test.values)
-np.save("models/y_pred.npy", y_pred)
+coef_df.to_csv("coefficients.csv", index=False)
+np.save("y_test.npy",  y_test.values)
+np.save("y_pred.npy",  y_pred)
 
-print("\nModel saved to: models/model.pkl")
-print("Coefficients saved to: models/coefficients.csv")
+print("\n Model saved to: model.pkl")
+print("Coefficients saved to: coefficients.csv")
