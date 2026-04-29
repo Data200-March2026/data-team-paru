@@ -1,16 +1,16 @@
-# Project Title
+Student Performance Analysis
 
 ## Team Information
 
 ### Team Name
-*Replace this with your team name*
+Team Paru
 
 ### Team Members
-1. Paru Maharjan (parumaharjan)*
-2. Subista Kunwar (SubistaKunwar)*
-3. Bipana Khadka (BipanaKhadka)*
+1. Paru Maharjan (parumaharjan)
+2. Subista Kunwar (SubistaKunwar)
+3. Bipana Khadka (BipanaKhadka)
 
 ### Task Division
-- **Member 1**: *Describe tasks assigned (e.g., data analysis and EDA)*
-- **Member 2**: *Describe tasks assigned (e.g., Model validation and creation)*
-- **Member 3**: *Describe tasks assigned (e.g., application development and data tasks)*
+Subista Kunwar: Performed data cleaning and initial EDA including key visualizations like exam score distribution and scatter plots.
+Paru Maharjan: Handled EDA using correlation heatmap, categorical box plots group mean score bar plots and managed feature engineering and model training.
+Bipana:  Model diagnostics and hypothesis testing for statistical validation.
