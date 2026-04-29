@@ -12,7 +12,10 @@ Team Paru
 
 ### Task Division
 Subista Kunwar: Performed data cleaning and initial EDA including key visualizations like exam score distribution and scatter plots.
+
 Paru Maharjan: Handled EDA using correlation heatmap, categorical box plots group mean score bar plots and managed feature engineering and model training.
+
 Bipana:  Model diagnostics and hypothesis testing for statistical validation.
 
-Link to our app: https://exam-predictor-ml.streamlit.app/
+Link to our app:
+https://exam-predictor-ml.streamlit.app/
